@@ -12,20 +12,28 @@ public class SpinWords {
      */
     public String spinWords(String sentence) {
         String[] strArry = sentence.split(" ");
-        String[] result = new String[strArry.length];
-        String str = "";
-        for(int i=0; i<strArry.length; i++) {
-            String word = strArry[i];
-            if (word.length() >= 5) {
-                StringBuilder piece = new StringBuilder();
-                piece.append(word);
-                str = piece.reverse().toString();
-            }else {
-                str = word;
+        for(String word : strArry) {
+            if (word.length() >= 5 ) {
+                word = new StringBuilder(word).reverse().toString();
             }
-            result[i] = str;
         }
-        List<String> strings = Arrays.asList(result);
-        return strings.stream().collect(Collectors.joining(" "));
+        return String.join(" ", strArry);
+
+//        String[] strArry = sentence.split(" ");
+//        String[] result = new String[strArry.length];
+//        String str = "";
+//        for(int i=0; i<strArry.length; i++) {
+//            String word = strArry[i];
+//            if (word.length() >= 5) {
+//                StringBuilder piece = new StringBuilder();
+//                piece.append(word);
+//                str = piece.reverse().toString();
+//            }else {
+//                str = word;
+//            }
+//            result[i] = str;
+//        }
+//        List<String> strings = Arrays.asList(result);
+//        return strings.stream().collect(Collectors.joining(" "));
     }
 }
